@@ -1,0 +1,55 @@
+*, *::before, *::after
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn
+{
+    margin: 1rem;
+    padding: 20px 35px;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    border: none;
+    background-color: gray;
+    width: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.btn.btn-border-pop::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* Creates the border */
+    border: 2px solid grey;
+
+    /*Move the frame behind the button */
+    z-index: -1;
+
+    transition: top, left, right, bottom, 200ms ease-in-out;
+}
+
+.btn.btn-border-pop:hover::before
+{
+    top: calc(3px * -2);
+    left: calc(3px * -2);
+    right: calc(3px * -2);
+    bottom: calc(3px * -2);
+}
